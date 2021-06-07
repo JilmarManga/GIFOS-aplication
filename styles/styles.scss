@@ -1,0 +1,213 @@
+@import "./variables";
+@import "./header";
+@import "./footer";
+@import "./trending";
+@import "./card";
+@import "./gifosMax";
+@import "./mainIndex";
+@import "./crearGifo";
+@import "./modoNocturno";
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    padding: 0;
+}
+
+ul li, ol li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 2rem;
+}
+
+h2 {
+    color: $purpleColor;
+    margin: 0;
+
+    @include montserrat-bold(2rem)
+}
+
+em {
+    font-style: normal;
+    color: $lightgreenColor;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.icon-main {
+    margin-bottom: 0.7rem;
+}
+
+.button {
+    border: 1px solid $purpleColor;
+    padding: 1.5rem 3rem;
+    background-color: white;
+    color: $purpleColor;
+    text-transform: uppercase;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+    outline: none;
+
+    @include montserrat-bold(1.3rem);
+
+    &:hover {
+        background-color: $purpleColor;
+        color:white;
+    }
+}
+
+.grid-gifs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    grid-auto-rows: 120px;
+    margin-top: 4.8rem;
+
+    &.no-favs-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10rem;
+
+        .no-favs-image {
+            display: block;
+        }
+    
+        .no-favs {
+            @include montserrat-bold(2.2rem);
+            color: $lightgreenColor;
+            text-align: center;
+    
+            @media screen and (min-width: $desktopBreakpoint) {
+                width: 431px;
+            }
+        }
+
+    }
+
+    @media screen and (min-width: $tabletBreakpoint) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 200px;
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+        grid-template-columns: repeat(4, 260px);
+        grid-gap: 2rem;
+        grid-auto-rows: 200px;
+    }
+}
+
+.gifs-container {
+    margin: 0 2rem 7.8rem 2rem;
+
+    .button {
+        margin-top: 7.8rem;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.margin-botton {
+    margin-bottom: 8rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .pagination-button {
+        display: flex;
+        align-items: center;
+        height: 14px;
+
+        svg path {
+            fill: $purpleColor;
+        }
+
+        &.pagination-button-disabled {
+            svg path {
+                fill: $grayColor;
+            }
+        }
+    }
+
+    .pagination-container {
+        overflow: hidden;
+        max-width: 290px;
+        position: relative;
+    }
+
+    .pagination-list {
+        display: grid;
+        top: 0;
+        right: 0;
+        transition: right .8s cubic-bezier(.36,.17,.13,1.06), left .8s cubic-bezier(.36,.17,.13,1.06);
+        position: relative;
+
+        .pagination-number {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            text-align: center;
+            padding-top: 5px;
+            margin: 1rem 1.3rem;
+            border-radius: 50%;
+            cursor: pointer;
+            @include roboto-regular(1.8rem);
+            color: $grayColor;
+            transition: background-color .3s ease-in-out;
+    
+            &.pagination-number-active {
+                border-radius: 50%;
+                color: white;
+                background-color: $purpleColor;
+                @include roboto-bold(1.8rem);
+            }
+        }
+    }
+}
+
+#mis-gifos {
+    margin: 10.5rem 2rem 8rem 2rem;
+}
+
+#favoritos {
+    margin: 10.5rem 2rem 8rem 2rem;
+}
+
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance:none;
+}

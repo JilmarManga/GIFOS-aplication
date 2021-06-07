@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--Metatag para que el navegador reconosca los caracteres especiales-->
+        <meta charset="UTF-8">
+        <!--IMPORTANTE Metatag que gestiona el responsive de la pagina en los dispositivos-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+        <!--Tag que permite mostar la pagina en internet explorer aun si no cumple con sus estandares-->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!--Metatag para agregar descripcion a la pagina, esta aparece en el listado de resultados del navegador-->
+        <meta
+        name="Podcast Landing Page"
+        content="Podcast landing page, proyecto final HTML y CSS para Acamica"
+        >
+        <!--Este tag nos permite definir las palabras clave "keywords" para el navegador importante para el SEO-->
+        <meta name="keywords" content="GIFOS, acamica, web, app, tecnología, codigo, social, gif">
+        <!--Estos dos meta tags son opcionales desde el punto de vista legal, pero permite referenciar el author de la pagina y al dueño de los derechos del codigo fuente de esta-->
+        <meta name="author" content="Jilmar Manga">
+        <meta name="copyright" content="© 2021">
+        <!--Metatag que le dice a los bots de los navegadores si indexar la pagina en sus resultados de busqueda o no-->
+        <meta name="robots" content="index-follow">
+        <!-- Este Metatag nos permite agregar el logo o cualquier imagen como favicon en la pestaña del navegador -->
+        <link rel="icon" href="./img/favicon.png" type="image/png">
+        <!-- Font families, google fonts, "Monserrat", "Roboto" -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <!-- link font-awesome library -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <!-- libreria  awesome-fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <!--Etiqueta que vincula la pagina con recursos externos de CSS-->
+        <link rel="stylesheet" href="/styles/styles.css">
+        <!--Titulo de la pagina que se mostrara en la pestaña del navegador-->
+        <title>GIFOS</title>
+    </head>
+
+<body>
+    <!-- Header Start -->
+    <header>
+
+        <!-- Responsive Logo -->
+        <a href="./index.html">
+            <picture class="logo">
+                <source media="(min-width:1000px)" srcset="./img/logo-desktop.svg">
+                <source media="(min-width:320px)" srcset="./img/logo-mobile.svg">
+                <img src="./img/logo-desktop.svg" alt="Logo">
+            </picture>
+        </a>
+
+        <!-- Burger Button Nav Bar -->
+        <input type="checkbox" id="burger-input">
+        <label for="burger-input">
+            <svg class="burger" width="15" height="14" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <defs>
+                    <path d="M14 12a1 1 0 010 2H1a1 1 0 010-2zm0-6a1 1 0 010 2H1a1 1 0 110-2zm0-6a1 1 0 010 2H1a1 1 0 110-2z" id="i"/>
+                </defs>
+                <use fill="#572EE5" fill-rule="nonzero" xlink:href="#i"/>
+            </svg>
+            <svg class="close" width="14" height="14" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <defs>
+                    <path d="M.293.293a1 1 0 011.414 0L7 5.585 12.293.293a1 1 0 011.32-.083l.094.083a1 1 0 010 1.414L8.415 7l5.292 5.293a1 1 0 01.083 1.32l-.083.094a1 1 0 01-1.414 0L7 8.415l-5.293 5.292a1 1 0 01-1.32.083l-.094-.083a1 1 0 010-1.414L5.585 7 .293 1.707A1 1 0 01.21.387z" id="j"/>
+                </defs>
+                <use fill="#4A1EE3" fill-rule="nonzero" xlink:href="#j"/>
+            </svg>
+        </label>
+        
+        <!-- Menu Nav Bar -->
+        <nav id="menu">
+            <ul>
+                <li id="dark-mode-button"><a>MODO NOCTURNO</a></li>
+                <li><a href="./favoritos.html">FAVORITOS</a></li>
+                <li><a class="active" href="#">MIS GIFOS</a></li>
+                <li class="mobile-create-gifo"><a href="./createGifo.html">CREAR GIFO</a></li>
+                <li><a href="./createGifo.html" class="button-crear-gifo"><span></span></a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Header End -->
+
+    <!-- Main Start -->
+    <main id="mis-gifos">
+        <img src="./img/icon-mis-gifos.svg" alt="Icono mis GIFOS" class="icon-main">
+        <h2>Mis GIFOS</h2>
+        <ul class="grid-gifs" id="my-gifs-list"></ul> 
+        <div id="pagination-container"></div>
+    </main>
+    <!-- Main End -->
+
+    <!-- Section Trending Start -->
+    <section id="trending">
+        <h2>Trending GIFOS</h2>
+        <p>Mira los últimos GIFOS de nuestra comunidad.</p>
+        
+        <!-- Galery Trending Gifos Start -->
+        <div class="gallery-section">
+            <button id="left" class="slider-button disabled">
+                <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs>
+                        <path d="M2.414 7l5.293-5.293A1 1 0 006.293.293l-6 6a1 1 0 000 1.414l6 6a1 1 0 101.414-1.414L2.414 7z" id="f"/>
+                    </defs>
+                    <g fill="none" fill-rule="evenodd">
+                        <path stroke="#572EE5" d="M.5.5h39v39H.5z"/>
+                        <use fill="#572EE5" fill-rule="nonzero" xlink:href="#f" transform="translate(16 13)"/>
+                    </g>
+                </svg>
+            </button>
+            
+            <div class="trending-slider">
+                <ul class="trending-gifos"></ul>
+            </div>
+
+            <button id="right" class="slider-button">
+                <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs>
+                        <path d="M5.586 7L.293 12.293a1 1 0 001.414 1.414l6-6a1 1 0 000-1.414l-6-6A1 1 0 10.293 1.707L5.586 7z" id="g"/>
+                    </defs>
+                    <g fill="none" fill-rule="evenodd">
+                        <path stroke="#572EE5" d="M.5.5h39v39H.5z"/>
+                        <use fill="#572EE5" fill-rule="nonzero" xlink:href="#g" transform="translate(16 13)"/>
+                    </g>
+                </svg>
+            </button>
+        </div>
+        <!-- Galery Trending Gifos End -->
+    </section>
+    <!-- Galery Trending Gifos End -->
+
+    <!-- Section footer Start -->
+    <footer>
+        <div>
+            <p>Compartir en:</p>
+            <ul>
+                <li><a href="https://www.facebook.com/"><img src="./img/icon_facebook.svg" alt="Facebook"></a></li>
+                <li><a href="https://twitter.com/"><img src="./img/icon-twitter.svg" alt="Twitter"></a></li>
+                <li><a href="https://www.instagram.com/"><img src="./img/icon_instagram.svg" alt="Instagram"></a></li>
+            </ul>
+        </div>
+        <p>© GIFOS 2021 All Rights Reserved.</p>
+    </footer>
+    <!-- Section footer End -->
+
+    <!-- js Script -->
+    <script src="./js/my-gifos.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+$purpleColor: #572EE5;
+$lightgreenColor: #5ED7C6;
+$grayColor: #9CAFC3;
+$grayIcon: invert(96%) sepia(23%) saturate(726%) hue-rotate(174deg) brightness(92%) contrast(90%);
+$purpleIcon: invert(20%) sepia(91%) saturate(6063%) hue-rotate(254deg) brightness(92%) contrast(95%);
+$whiteIcon: invert(100%) sepia(0%) saturate(0%) hue-rotate(10deg) brightness(104%) contrast(102%);
+
+
+// dark mode
+$darkModeGrayColor: #37383C;
+$darkModeBlackColor: #222326;
+
+
+//Fonts
+@mixin roboto-bold($font-size) {
+    font: 700 $font-size 'Roboto', sans-serif;
+}
+
+@mixin roboto-regular($font-size) {
+    font: 400 $font-size 'Roboto', sans-serif;
+}
+
+@mixin montserrat-medium($font-size) {
+    font: 500 $font-size 'Montserrat', sans-serif;
+}
+
+@mixin montserrat-bold($font-size) {
+    font: 700 $font-size 'Montserrat', sans-serif;
+}
+
+
+// Scren Sizes
+$desktopBreakpoint: 1000px;
+$tabletBreakpoint: 550px;

@@ -1,0 +1,196 @@
+#search {
+
+    h1 {
+        width: 70%;
+        text-align: center;
+        top: 0%;
+        color: $purpleColor;
+
+        @include montserrat-bold(2.5rem);
+    }
+
+    .search-block {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        max-width: 550px;
+        margin-bottom: 4rem;
+
+        form {
+            width: 90%;
+            top: 100%;
+            transform-origin: top;
+            background-color: white;
+            border: 1px solid $purpleColor;
+            border-radius: 27px;
+            max-height: 50px;
+            overflow: hidden;
+            transition: max-height .3s ease-in-out;
+
+            &.suggestions {
+                border-radius: 27px;
+                max-height: 300px;
+                transition: max-height .3s ease-in-out;
+            }
+
+            &.suggestions:before {
+                width: 92%;
+                height: 1px;
+                margin: 0 4%;
+                top: 45px;
+                content: '';
+                display: block;
+                background-color: $grayColor;
+                position: relative;
+            }
+
+            ul li {
+                color: $grayColor;
+                padding: 0.5rem 5rem;
+
+                @include roboto-regular(1.6rem)
+            }
+
+        }
+
+        &> img {
+            width: 70%;
+            // position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 1.3rem 5rem;
+            display: inline-block;
+            color: black;
+            outline: none;
+            border: none;
+            background-color: transparent;
+
+            @include roboto-regular(1.6rem);
+        }
+
+        input::placeholder {
+            color: #9CAFC3;
+        }
+
+        button {
+            top: -33px;
+            right: 15px;
+            left: 87%;
+            position: relative;
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+
+        .input-active-icon {
+            right: initial;
+            left: 15px; 
+            
+            svg use {
+                fill: $grayColor;
+            }
+        }
+
+        .clear-button {
+            top: -35px;
+            left: 80%;
+            position: relative;
+        }
+
+        .suggestion-item {
+            height: 25px;
+            display: flex;
+            position: relative;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+
+            button {
+                width: 15px;
+                top: 0;
+                left: -30px;
+                transform: scale(0.7);
+            }
+        }
+    }
+
+    .header-text {
+        text-align: center;
+        margin-bottom: 5rem;
+        padding: 4rem;
+        color: $purpleColor;
+
+        h3 {
+            margin: 0;
+            line-height: 25px;
+            line-height: 2.6rem;
+            color: $purpleColor;
+            @include montserrat-bold(1.8rem);
+        }
+
+        p {
+            margin: 0;
+            line-height: 2.5rem;
+            @include montserrat-medium(1.6rem);
+        }
+    }
+
+    .results-search {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            font-size: 2.5rem;
+            position: relative;
+
+            &::before {
+                width: 157px;
+                height: 1px;
+                display: block;
+                top: -48px;
+                content: "";
+                position: absolute;
+                background-color: $grayColor;
+            }
+        
+            @media screen and (min-width: $desktopBreakpoint){
+                font-size: 3.5rem;
+
+                &::before {
+                    width: 338px;
+                }
+            }
+        }
+
+        .no-results {
+            display: block;
+            margin-top: 9rem;
+            margin-bottom: 2rem;
+        }
+
+        .no-results-text {
+            @include montserrat-bold(2.2rem);
+            color: $lightgreenColor;
+            margin-bottom: 5rem;
+        }
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+        h1 {
+            width: 600px;
+            font-size: 3.5rem;
+            margin-top: 7rem;
+        }
+
+        button {
+            left: 85%;
+        }
+    }
+}

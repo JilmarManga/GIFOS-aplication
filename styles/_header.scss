@@ -1,0 +1,240 @@
+header {
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    align-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    flex-wrap: wrap;
+    top: 0;
+    z-index: 4;
+    border-top: 5px solid $purpleColor;
+    box-shadow: 0;
+    transition: box-shadow .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &> a {
+        padding: 3rem 2.5rem 1.3rem 2.5rem;
+    }
+
+    .burger, .close {
+        margin-top: 3rem;
+        margin-right: 2.5rem;
+    }
+
+    nav {
+        width: 100%;
+        height: 100vh;
+        align-self: flex-end;
+        background-color: $purpleColor;
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform .2s;
+        opacity: 0.9;
+
+        ul {
+            padding: 0;
+        }
+
+        ul li {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+
+            &::after {
+                height: 1px;
+                width: 40px;
+                display: block;
+                content: "";
+                background-color: white;
+                position: absolute;
+                bottom: 1rem;
+                opacity: 0.5;
+            }
+
+            &:last-of-type::after {
+                display: none;
+            }
+            
+        }
+
+        ul li a {
+            width: 100%;
+            padding: 2.3rem 0;
+            display: inline-block;
+            color: white;
+            
+            @include montserrat-bold(1.5rem);
+
+        }
+
+    }
+
+    .close {
+        display: none;
+    }
+
+    label {
+        cursor: pointer;
+    }
+
+    #burger-input {
+        display: none;
+
+        &:checked ~ nav {
+            transform: scaleY(1);
+        }
+
+        &:checked ~ label {
+
+            & > .burger {
+                display: none;
+            }
+
+            & > .close {
+                display: block;
+            }
+        }
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) { 
+        height: 9.5rem;
+        padding: 0 13rem 0 15rem;
+        align-items: center;
+        align-content: center;
+
+        label {
+            display: none;
+        }
+
+        &> a {
+            padding: 1rem 0 0 0;
+        }
+
+        nav {
+            height: auto;
+            width: auto;
+            transform: initial;
+            background-color: transparent;
+
+            ul {
+                display: flex;
+                align-items: center;
+            }
+
+            ul li {
+                display: inline-block;
+                text-transform: uppercase;
+                padding: 0 2rem;
+            }
+
+            ul li::after {
+                content: initial;
+            }
+
+            ul li a {
+                color: $purpleColor;
+                position: relative;
+                cursor: pointer;
+
+                @include montserrat-bold(1.3rem)
+            }
+
+            ul li a.active {
+                color: $grayColor;
+            }
+
+            .mobile-create-gifo {
+                display: none;
+            }
+
+
+            .link-active {
+                color: $grayColor;
+            }
+
+            ul li:not(:last-of-type) a::after {
+                width: 100%;
+                height: 2px;
+                display: block;
+                content: "";
+                bottom: 18px;
+                background-color: $lightgreenColor;
+                transform-origin: left;
+                position: absolute;
+                transform: scaleX(0);
+                transition: transform 0.3s;
+            }
+
+            ul li:not(:last-of-type) a:hover::after {
+                transform: scaleX(1);
+            }
+
+            span {
+                width: 16px;
+                height: 2px;
+                position: relative;
+                background-color: $purpleColor;
+                display: block;
+                top:7px;
+            }
+
+            span::after {
+                width: 2px;
+                height: 16px;
+                content: "";
+                display: block;
+                top: -7px;
+                left: 7px;
+                background-color: $purpleColor;
+                position: absolute;
+                transform-origin: center;
+            }
+
+            .button-crear-gifo {
+                width: 54px;
+                height: 54px;
+                padding: 1.8rem;
+                display: block;
+                border-radius: 50%;
+                border: 1px solid $purpleColor;
+                transition: all 0.3s;
+            }
+
+            .button-crear-gifo-active {
+                background-color: $grayColor;
+                border: 1px solid $grayColor;
+            }
+
+            .button-crear-gifo-active > span {
+                background-color: #fff;
+            }
+
+            .button-crear-gifo-active > span::after {
+                background-color: #fff;
+            }
+
+            .button-crear-gifo:hover {
+                background-color: $purpleColor;
+                border: 1px solid $purpleColor;
+            }
+
+            .button-crear-gifo:hover > span {
+                background-color: #fff;
+            }
+
+            .button-crear-gifo:hover > span::after {
+                background-color: #fff;
+            }
+        }
+    }
+
+
+    @media screen and (min-width: 1180px) {
+        .form-scroll-show {
+            display: block;
+        }
+    }
+}

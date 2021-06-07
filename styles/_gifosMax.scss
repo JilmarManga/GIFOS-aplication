@@ -1,0 +1,161 @@
+.gif-max-modal {
+    width: 100%;
+    height: 100%;
+    padding: 3rem;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: rgba(255,255,255,0.90);
+    z-index: 5;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    display: none;
+
+    .close-modal {
+        align-self: flex-end;
+        margin-bottom: 7rem;
+        cursor: pointer;
+        transition: transform .3s ease-in-out;
+        
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    .gif {
+        width: 100%;
+    }
+
+    .gif-max-img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            margin: 2rem;
+        }
+
+        .slider-button {
+            display: none;
+        }
+    }
+
+    .modal-img-footer {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .footer-modal {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 2rem;
+
+        .info-modal  {
+            text-align: left;
+
+            p {
+                padding: 0;
+                margin: .3rem;
+
+                &:first-of-type {
+                    @include roboto-regular(1.5rem)
+                }
+                &:last-of-type {
+                    @include roboto-bold(1.6rem);
+                    max-width: 200px;
+                }
+            }
+        }
+
+        .buttons-modal {
+
+            .svg-button-card svg rect {
+                transition: opacity .3s;
+            }
+
+            .svg-button-card:hover svg rect {
+                opacity: 1;
+            }
+
+            .svg-button-card:hover svg use {
+                fill-opacity: 1;
+            }
+
+            .svg-button-card:hover svg path {
+                fill-opacity: 1;
+            }
+        }
+    }
+    .svg-button-modal {
+        margin-left: .5rem;
+    }
+
+    .svg-button-modal svg rect{
+        stroke-width: 1;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 1.0;
+    }
+
+    .svg-button-modal svg rect {
+        transition: opacity .3s;
+    }
+
+    .svg-button-modal:hover svg rect {
+        opacity: 1;
+    }
+
+    .svg-button-modal:hover svg use {
+        fill-opacity: 1;
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+        .close-modal {
+            margin: 2rem 20rem 2rem 0;
+
+        }
+
+        .gif {
+            width: auto;
+            height: 70vh;
+        }
+
+        .gif-max-img {
+            
+            .slider-button {
+                display: block;
+            }
+        }
+
+        .modal-img-footer {
+            display: block;
+        }
+
+        .footer-modal {
+            width: auto;
+
+            .info-modal  {
+    
+                p:last-of-type {
+                        @include roboto-bold(1.6rem);
+                        max-width: 500px;
+
+                }
+            }
+        }
+    }
+}
+
+.gif-max-show {
+    display: flex;
+}
+
+.gif-max-transition {
+    opacity: 1;
+}

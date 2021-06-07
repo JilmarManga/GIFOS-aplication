@@ -1,0 +1,112 @@
+.trending-card {
+    position: relative;
+
+    button {
+        padding: 0;
+        border: none;
+        background-color: transparent; 
+        outline: none;
+    }
+
+    .trending-img-container img {
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        object-fit: cover;
+    }
+
+    .trending-img-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    &::after {
+        width: 100%;
+        height: 100%;
+        content: "";
+        position: absolute;
+        background-color: $purpleColor;
+        top: 0;
+        opacity: 0;
+        transition: opacity 0.2s;
+        display: none;
+        
+    }
+
+    &:hover::after {
+        opacity: 0.6;
+    }
+
+    .trending-card-overlay {
+        width: 100%;
+        height: 100%;
+        padding: 0 0 2rem 2rem;
+        justify-content: space-between;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity .2s;
+        display: none;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        p {
+            margin: 0;
+            text-align: left;
+            color: white;
+
+            &:first-of-type {
+                @include roboto-regular(1.4rem);
+            }
+
+            &:last-of-type {
+                @include roboto-bold(1.6rem);
+                max-width: 95%;
+            }
+        }
+    }
+
+    .trending-card-buttons {
+        display: flex;
+        justify-content: flex-end;
+        margin: 11px 6px 0 0;
+
+        button {
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .svg-button-card svg rect {
+            transition: opacity .3s;
+        }
+
+        .svg-button-card:hover svg rect {
+            opacity: 1;
+        }
+
+        .svg-button-card:hover svg use {
+            fill-opacity: 1;
+        }
+
+        .svg-button-card:hover svg path {
+            fill-opacity: 1;
+        }
+    }
+
+    @media screen and (min-width: $desktopBreakpoint) {
+        &::after {
+            display: block;
+        }
+        
+        .trending-card-overlay {
+            display: flex;
+        }
+    }
+
+}
