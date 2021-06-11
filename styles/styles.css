@@ -888,25 +888,35 @@ footer ul li:hover > a > img {
           transform: scale(0.7);
 }
 
-#search .header-text {
+#search .trending-list {
   text-align: center;
+  color: #572EE5;
+  margin-top: 1.5rem;
+  padding: 2rem;
   margin-bottom: 5rem;
-  padding: 4rem;
-  color: #572EE5;
 }
 
-#search .header-text h3 {
+#search .trending-list p {
   margin: 0;
-  line-height: 25px;
-  line-height: 2.6rem;
-  color: #572EE5;
-  font: 700 1.8rem "Montserrat", sans-serif;
 }
 
-#search .header-text p {
-  margin: 0;
+#search .trending-list p:first-of-type {
+  font: 700 1.6rem "Montserrat", sans-serif;
+  margin-bottom: 1rem;
+}
+
+#search .trending-list p:last-of-type {
+  font: 500 1.4rem "Montserrat", sans-serif;
   line-height: 2.5rem;
-  font: 500 1.6rem "Montserrat", sans-serif;
+}
+
+#search .trending-list p span {
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+#search .trending-list p span:hover {
+  text-decoration: underline;
 }
 
 #search .results-search {

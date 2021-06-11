@@ -117,24 +117,37 @@
         }
     }
 
-    .header-text {
+    .trending-list {
         text-align: center;
-        margin-bottom: 5rem;
-        padding: 4rem;
         color: $purpleColor;
-
-        h3 {
-            margin: 0;
-            line-height: 25px;
-            line-height: 2.6rem;
-            color: $purpleColor;
-            @include montserrat-bold(1.8rem);
-        }
+        margin-top: 1.5rem;
+        padding: 2rem;
+        margin-bottom: 5rem;
 
         p {
             margin: 0;
-            line-height: 2.5rem;
-            @include montserrat-medium(1.6rem);
+
+            &:first-of-type {
+                @include montserrat-bold(1.6rem);
+
+                margin-bottom: 1rem;
+            }
+
+            &:last-of-type {
+                @include montserrat-medium(1.4rem);
+
+                line-height: 2.5rem;
+            }
+
+            span {
+                text-transform: capitalize;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+
+            }
         }
     }
 

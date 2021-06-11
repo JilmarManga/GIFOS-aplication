@@ -6,6 +6,7 @@ import {getTrendingGifs, listenerButtons} from './modules/slider.js'
 let apiKey = 'aN6tuDgSQKVjGDlrpnbycWZMk51kvdtQ';
 let offset = 0;
 let desktopBreakpoint = window.matchMedia('screen and (min-width: 1000px)');
+let trendingWords = document.getElementById('trending-words');
 let resultsContainer;
 let searchInput = document.getElementById('searchInput');
 let suggestionsList = document.getElementById('suggestions-list');
@@ -21,6 +22,46 @@ let paginationNumbers = [];
 
 // Listener for dark mode button
 darkModeButton.addEventListener('click', toggleDarkMode);
+
+
+// API request to get trending words and invoke function to render data
+async function getTrendingWords() {  
+    let response = await fetch(`https://api.giphy.com/v1/trending/searches?api_key=${apiKey}`)
+    let words = await response.json()
+    renderTrendingWords(words)
+}
+
+getTrendingWords()
+
+/**
+ * render trending words and add them a listener for search
+ * @param {object} array - response from server containing the array with the trending words
+ */
+function renderTrendingWords(array) {
+    let words = array.data.slice(0, 5)
+    let newWord
+    let wordsEvent
+
+    for (let i = 0; i < words.length; i++) {
+        if(i === words.length - 1) {
+            newWord = document.createElement('span')
+            newWord.innerHTML = `${words[i]}`
+            trendingWords.appendChild(newWord)
+        } else {
+            newWord = document.createElement('span')
+            newWord.innerHTML = `${words[i]}, `
+            trendingWords.appendChild(newWord)
+        }
+            
+        wordsEvent = document.querySelector(`#trending-words span:nth-of-type(${i+1})`)
+        wordsEvent.addEventListener('click', () => {
+            offset = 0
+            searchInput.value = words[i]
+            getSearchResults(words[i], offset)
+            responsiveScroll(desktopBreakpoint)
+        })
+    }
+}
 
 
 // get and render trending gifs imported from slider.js
